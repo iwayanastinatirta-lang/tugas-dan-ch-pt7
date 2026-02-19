@@ -1,0 +1,27 @@
+# Variabel Global
+total_item_terjual = 0
+
+
+def proses_pesanan(pelanggan, *args, **kwargs):
+    global total_item_terjual
+
+    print(f"Nama Pelanggan: {pelanggan}")
+
+    print("Menu yang dipesan:")
+    for menu in args:
+        print("-", menu)
+
+    print("Catatan tambahan:")
+    for key, value in kwargs.items():
+        print(f"- {key}: {value}")
+
+    # Update total item terjual
+    total_item_terjual += len(args)
+
+    print(f"Total item terjual saat ini: {total_item_terjual}")
+    print("-" * 30)
+
+
+# Contoh pemanggilan fungsi
+proses_pesanan("Tirta", "Kopi", "Roti", gula="less", pedas=True)
+proses_pesanan("Budi", "Teh", "Nasi Goreng", "Ayam Bakar", es="no")
