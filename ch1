@@ -1,0 +1,6 @@
+def print_favorite_movie():
+    print('Film favoriet saya adalah upin ipin siamang tunggal')
+
+print_favorite_movie()
+print_favorite_movie()
+print_favorite_movie()
