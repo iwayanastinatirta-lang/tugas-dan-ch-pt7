@@ -1,0 +1,7 @@
+def display_score(name,score):
+    print(f'Player {name}, score {score}')
+
+display_score('Dodol', 90)
+display_score('Gadul', 60)
+display_score('Memet', 80)
+display_score('Becok', 70)
