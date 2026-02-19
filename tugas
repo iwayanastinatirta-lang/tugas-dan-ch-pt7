@@ -1,0 +1,51 @@
+import random
+
+# Daftar kata
+word_list = ["python", "komputer", "program", "hangman", "developer"]
+
+# Pilih kata secara random
+secret_word = random.choice(word_list)
+guessed_letters = []
+wrong_guesses = 0
+max_wrong = 6
+
+print("🎮 Selamat Datang di Hangman Game!")
+print("Tebak kata berikut!")
+
+while wrong_guesses < max_wrong:
+    display_word = ""
+
+    # Menampilkan huruf yang sudah ditebak
+
+    for letter in secret_word:
+        if letter in guessed_letters:
+            display_word += letter + " "
+        else:
+            display_word += "_ "
+
+    print("\nKata:", display_word)
+
+    # Cek jika semua huruf sudah ditebak
+    if "_" not in display_word:
+        print("🎉 Selamat! Kamu berhasil menebak katanya:", secret_word)
+        break
+
+    guess = input("Masukkan huruf: ").lower()
+
+    # Validasi input
+    if len(guess) != 1 or not guess.isalpha():
+        print("⚠ Masukkan satu huruf saja!")
+        continue
+
+    if guess in guessed_letters:
+        print("⚠ Huruf sudah ditebak!")
+        continue
+
+    guessed_letters.append(guess)
+
+    if guess not in secret_word:
+        wrong_guesses += 1
+        print("❌ Salah! Sisa kesempatan:", max_wrong - wrong_guesses)
+
+else:
+    print("💀 Game Over! Kata yang benar adalah:", secret_word)
