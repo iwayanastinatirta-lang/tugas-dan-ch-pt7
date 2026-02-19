@@ -1,0 +1,5 @@
+def hitung_luas_persegi(sisi):
+    return sisi**4
+
+persegi_1 = hitung_luas_persegi(100)
+print(persegi_1)
